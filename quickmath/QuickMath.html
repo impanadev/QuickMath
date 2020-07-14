@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QuickMath quizes</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			 background-image: url("quickmath.jpg");
+             background-position: right top;
+		}
+		.wrapper {
+    		text-align: center;
+		}
+
+		#button {
+		    position: absolute;
+		    top: 80%;
+		}
+		#field{
+			position: absolute;
+			top: 70%;
+			width: 30%;
+			margin-left: 37%;
+			text-align: center;
+			
+				}
+		.equation{
+			/*margin-left: 37%;*/
+			text-align: center;
+			margin-top: 4em;
+		}
+		#print{
+			text-align: center;
+			margin-top: 3em;
+		}
+
+
+
+		
+		
+
+	</style>
+</head>
+<body>
+
+	<p style="text-align:center;font-size: 40px;margin-top:6.5em ">Get solving!</p>
+	<div class="equation">
+
+	<h1 class="eq" style="display: inline-block;"><span id="myText"></span></h1>
+	<h1 class="eq" style="display: inline-block;"><span id="myText2"></span></h1>
+	<h1 class="eq" style="display: inline-block;"><span id="myText3"></span></h1>
+	</div>
+
+ <h1 id="print"></h1>
+
+<div class="wrapper">
+   <input class="form-control" type="text" placeholder="Answer" id="field">
+
+   <button type="button" class="btn btn-outline-info"  id="button" input typ >submit</button>
+</div>
+ 
+<script type="text/javascript">
+	var randno1 = Math.floor(Math.random() * 101);
+	var randno2 = Math.floor(Math.random() * 101);
+	var op=["+","-","*"];
+	var rand = Math.floor(Math.random() * op.length);
+	var res=randno1+op[rand]+randno2
+
+	document.getElementById("myText").innerHTML = randno1;
+	document.getElementById("myText2").innerHTML = op[rand];
+	document.getElementById("myText3").innerHTML = randno2;
+	// document.getElementById("print").innerHTML = res;
+
+	document.getElementById("button").addEventListener("click", solve);
+
+	function solve()
+	{
+		var inputVal = document.getElementById("field").value;
+		var res1 =eval(res);
+		if (inputVal==res1)
+		{
+			
+			location.reload();
+			document.getElementById("print").innerHTML = "You're doing great!";
+		}
+		
+		
+	}
+
+</script>
+ 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>	
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</body>
+</html>
